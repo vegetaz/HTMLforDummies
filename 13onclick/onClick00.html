@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>onclick</title>
+</head>
+
+<body>
+    <h1>onclick</h1>
+    <h6>Hướng dẫn xử lý sự kiện click từ người dùng, giúp xây dựng trang web có tính tương tác hơn.</h6>
+    <input id="new-item" type="text">
+    <button onclick="addItem();">Add</button>
+    <ul id="todo-list"></ul>
+    <script type="text/javascript">
+        let toDoList = [
+            'Sứt',
+            'Lem',
+            'Trắng'
+        ];
+
+        function addItem() {
+            // Get value of the input
+            let input = document.getElementById('new-item');
+            let newItem = input.value;
+            // Add to toDoList array
+            toDoList.push(newItem);
+            // re-render
+            render();
+            // Clear input
+            input.value = '';
+        }
+
+        function render() {
+            let htmlList = document.getElementById('todo-list');
+            let content = toDoList.map(function(item) {
+                return '<li>' + item + '</li>';
+            });
+            htmlList.innerHTML = content.join('');
+        }
+
+        render();
+    </script>
+</body>
+
+</html>

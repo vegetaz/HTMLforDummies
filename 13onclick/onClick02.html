@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>onclick</title>
+</head>
+
+<body>
+    <h1>onclick</h1>
+    <h6>Hướng dẫn xử lý sự kiện click từ người dùng, giúp xây dựng trang web có tính tương tác hơn.</h6>
+    <!-- 
+        Viết code sao cho khi nhấn nút Clear thì chữ trong input sẽ bị xoá
+        Kiểm tra bằng cách gõ chữ vào ô tìm kiếm và nhấn Clear
+     -->
+    <input type="text" id="searchBox" placeholder="Search..." />
+    <button>Search</button>
+    <button onclick="xoa();">Clear</button>
+    <script type="text/javascript">
+        let searchBox = document.getElementById('searchBox');
+
+        function xoa() {
+            searchBox.value = '';
+        }
+    </script>
+</body>
+
+</html>

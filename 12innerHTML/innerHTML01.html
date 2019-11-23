@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>innerHTML property</title>
+</head>
+
+<body>
+    <!--
+        - Sử dụng getElementsByTagName() để lấy ra danh sách các <p> có class là 'foo'
+        - Lặp qua các phần tử và thay đổi nội dung của từng phần tử bằng cách append (thêm vào cuối) một đường link tới coders.tokyo site
+     -->
+    <p class="foo">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis.</p>
+    <p class="foo">Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, dicta.</p>
+    <p class="bar">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, aliquam magni.</p>
+    <p class="cala">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laudantium eveniet distinctio praesentium.</p>
+
+    <script type="text/javascript">
+        let pTags = document.getElementsByTagName('p');
+        console.log(pTags);
+    </script>
+</body>
+
+</html>

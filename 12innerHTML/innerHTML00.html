@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>innerHTML property</title>
+</head>
+
+<body>
+    <h1>innerHTML property</h1>
+    <h6>Giới thiệu về innerHTML property và cách sử dụng để thay đổi content trên trang web.</h6>
+    <ul id="todo-list"></ul>
+    <script type="text/javascript">
+        let todoList = [
+            'Take shower',
+            'Have a walk',
+            'Go to bed'
+        ];
+
+        let htmlList = document.getElementById('todo-list');
+        let content = todoList.map((item) => {
+            return '<li>' + item + '</li>';
+        });
+
+        htmlList.innerHTML = content.join('');
+    </script>
+</body>
+
+</html>
