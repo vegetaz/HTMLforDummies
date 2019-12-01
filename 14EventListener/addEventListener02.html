@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>addEventListener</title>
+</head>
+
+<body>
+    <h1>addEventListener</h1>
+    <h6>Giải thích khái niệm event, event listener.</h6>
+    <h5>Câu 2 bài 14</h5>
+    <p>sự kiện 'change' chỉ xảy ra khi input bị mất focus</p>
+    <p>sử dụng sự kiện keyup để tìm kiếm người dùng có số điện thoại khớp với nội dung tìm kiếm.</p>
+    <p><b>Gợi ý:</b></p>
+    <ul>
+        <li>biến value dưới đây là giá trị của input tại thời điểm gõ phím</li>
+        <li>sử dụng array.filter và string.indexOf để lọc users array, trả về những phần tử có số điện thoại chứa string lưu trong biến value</li>
+        <li>Sử dụng Chrome Developer Tools để xem giá trị hiển thị ra sau mỗi lần gõ</li>
+    </ul>
+    <input type="text" id="searchInput" placeholder="Search by phone number..." />
+    <ul id="userList">
+
+    </ul>
+    <script type="text/javascript">
+        let users = [{
+            name: 'Thinh',
+            phone: '070123123'
+        }, {
+            name: 'Hung',
+            phone: '080456456'
+        }, {
+            name: 'Hoang',
+            phone: '090123123'
+        }];
+        let userList = document.getElementById('userList');
+        let searchInput = document.getElementById('searchInput');
+
+        function render(users) {
+            let content = users.map(function(user) {
+                return '<li>' + user.name + ' - ' + user.phone + '</li>';
+            });
+            userList.innerHTML = content.join('');
+        }
+
+        render(users);
+
+        searchInput.addEventListener('keyup', function(event) {
+            let value = searchInput.value;
+            let user = users.filter(function(item) {
+                if (item.phone === String(value)) {
+                    return item;
+                }
+            });
+            render(users);
+        });
+    </script>
+</body>
+
+</html>
