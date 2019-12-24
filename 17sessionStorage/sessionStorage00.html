@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>sessionStorage</title>
+</head>
+
+<body>
+    <h1>Hướng dẫn lưu dữ liệu trên trình duyệt một cách tạm thời dùng sessionStorage.</h1>
+    <a href="https://viblo.asia/p/local-storage-session-storage-va-cookie-ORNZqN3bl0n">Local Storage, Session Storage và Cookie</a>
+    <a href="https://toidicode.com/localstorage-va-sessionstorage-189.html">LocalStorage và sessionStorage</a>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <input id="new-item" type="text" />
+    <button id="add-btn">Add</button>
+    <ul id="todo-list"></ul>
+    <script type="text/javascript">
+        let storageKey = 'todoList';
+        let dataString = localStorage.getItem(storageKey);
+        let todoList;
+
+        if (dataString) {
+            todoList = JSON.parse(dataString);
+        } else {
+            todoList = [];
+        }
+
+        let addBtn = document.getElementById('add-btn');
+        let input = document.getElementById('new-item');
+        addBtn.addEventListener('click', addItem);
+
+        input.value = sessionStorage.getItem('draft');
+        input.addEventListener('change', updateSessionStorage);
+
+        function updateSessionStorage() {
+            sessionStorage.setItem('draft', input.value);
+        }
+
+        function addItem() {
+            let newItem = input.value;
+            todoList.push(newItem);
+            render();
+            input.value = '';
+            localStorage.setItem(storageKey, JSON.stringify(todoList));
+        }
+
+        function render() {
+            let htmlList = document.getElementById('todo-list');
+            let content = todoList.map(function(item) {
+                return '<li>' + item + '</li>';
+            });
+            htmlList.innerHTML = content.join('');
+        }
+
+        render();
+    </script>
+</body>
+
+</html>
